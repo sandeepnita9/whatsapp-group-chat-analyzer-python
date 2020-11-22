@@ -72,12 +72,12 @@ def Create_Columns_with_Data_for_Dataframe(CleanedChatData):
 
 
 def Generate_Most_Active_User_Graph(ChatData_DataFrame):
-    top10ActiveMember = ChatData_DataFrame.Number_Author.value_counts(ascending=False).head(4)
+    top10ActiveMember = ChatData_DataFrame.Number_Author.value_counts(ascending=False).head(8)
     print(top10ActiveMember)
     ax = top10ActiveMember.plot.barh(color='Darkblue')
     ax.set_xlabel ('Number of sent message')
     ax.set_ylabel("Users")
-    ax.set_title("Top 10 Users that sent more messages")
+    ax.set_title("Most Active Users of Group - Based on No. of messages sent")
 
 '''def Generate_Most_Engagement_Time(ChatData_DataFrame):
 toptimeengaged = ChatData_DataFrame.Time.value_counts(ascending=False).head(4)
@@ -88,7 +88,7 @@ ax.set_title("Top 10 Time of Engagement")'''
 
 if __name__ == "__main__": 
     
-    # calling function that will read chat data and do first level of line spliting. Add your file path
+    # calling function that will read chat data and do first level of line spliting
     WhatsappChat = read_chat_file('D:\py-scripts\whatsapp-chat-analyzer\Chat.txt')
     
     #Below line will help you to know if your chat data have user joined notification messages. You can remove these lines.
