@@ -72,19 +72,12 @@ def Create_Columns_with_Data_for_Dataframe(CleanedChatData):
 
 
 def Generate_Most_Active_User_Graph(ChatData_DataFrame):
-    top10ActiveMember = ChatData_DataFrame.Number_Author.value_counts(ascending=False).head(8)
-    print(top10ActiveMember)
-    ax = top10ActiveMember.plot.barh(color='Darkblue')
+    MostActiveUsers = ChatData_DataFrame.Number_Author.value_counts(ascending=False).head(5)
+    print(MostActiveUsers)
+    ax = MostActiveUsers.plot.barh(color='Red')
     ax.set_xlabel ('Number of sent message')
     ax.set_ylabel("Users")
-    ax.set_title("Most Active Users of Group - Based on No. of messages sent")
-
-'''def Generate_Most_Engagement_Time(ChatData_DataFrame):
-toptimeengaged = ChatData_DataFrame.Time.value_counts(ascending=False).head(4)
-ax = toptimeengaged.plot(kind="bar", color='Darkblue')
-ax.set_xlabel ('Time')
-ax.set_ylabel ('Frequency')
-ax.set_title("Top 10 Time of Engagement")''' 
+    ax.set_title("Most Active Users of Group - Based on No. of messages sent") 
 
 if __name__ == "__main__": 
     
